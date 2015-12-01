@@ -73,11 +73,6 @@ syn region jqInterpolation matchgroup=jqInterpolationDelimiter
             \ contained contains=TOP
 highlight link jqSingleQuote      jqString
 highlight link jqDoubleQuote      jqString
-if !exists('jq_no_quote_highlight')
-    highlight link jqQuote        Type
-else
-    highlight link jqQuote        String
-endif
 
 " Operators
 syn match jqOperator /[-+=:<>]\+/
@@ -117,6 +112,4 @@ hi link jqInterpolationDelimiter Delimiter
 "hi link jqException              Exception
 "hi link jqInclude                Include
 "hi link jqDecorator              Define
-if !exists('jq_no_number_highlight')
-    hi link jqNumber               Number
-endif
+hi link jqNumber                 Number
