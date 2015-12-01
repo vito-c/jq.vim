@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	jq
-" Maintainer:	Vito Cutten <vito.blog@gmail.com>
+" Maintainer:	Vito C <vito.blog@gmail.com>
 " Last Change:	2015 Nov 28
 
 " Quit when a (custom) syntax file was already loaded
