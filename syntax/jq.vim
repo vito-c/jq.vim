@@ -111,6 +111,4 @@ hi link jqString               String
 "hi link jqException            Exception
 "hi link jqInclude              Include
 "hi link jqDecorator            Define
-if !exists('jq_no_number_highlight')
-    hi link jqNumber               Number
-endif
+hi link jqNumber               Number
