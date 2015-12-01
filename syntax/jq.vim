@@ -26,6 +26,7 @@ syntax keyword jqCondtions true false null
 " jqSpecials
 syntax keyword jqType type
 syntax match jqType /[\|;]/ " not really a type I did this for coloring reasons though :help group-name
+syntax region jqParentheses start=+(+ end=+)+ fold transparent
 
 " jq Functions
 syntax keyword jqFunction add all any arrays ascii_downcase floor
@@ -65,7 +66,11 @@ syn match jqNameDefinition /`[^`]\+`/ contained nextgroup=jqPostNameDefinition
 " Strings
 syn region jqSingleQuote matchgroup=jqQuote start=+'+ end=+'+ contains=@Spell
 syn region jqDoubleQuote matchgroup=jqQuote
-            \ start=+\%(\%(\\\\\)*\\\)\@<!"+ skip=+\\"+ end=+"+
+            \ start=+"+ skip=+\\"+ end=+"+
+            \ contains=@Spell,jqInterpolation
+syn region jqInterpolation matchgroup=jqInterpolationDelimiter
+            \ start=+\%([^\\]\%(\\\\\)*\\\)\@<!\\(+ end=+)+
+            \ contained contains=TOP
 highlight link jqSingleQuote      jqString
 highlight link jqDoubleQuote      jqString
 
@@ -89,21 +94,22 @@ else
     highlight link jqQuote        Type
 endif
 
-hi link jqCondtions            Boolean
-hi link jqVariables            Identifier
-hi link jqNameDefinition       Function
-hi link jqTodo                 Todo
-hi link jqComment              Comment
-hi link jqKeywords             Keyword
-hi link jqType                 Type
-hi link jqOperator             Operator
-hi link jqFunction             Function
-hi link jqError                Error
-hi link jqString               String
-"hi link jqStatement            Statement
-"hi link jqConditional          Conditional
-"hi link jqRepeat               Repeat
-"hi link jqException            Exception
-"hi link jqInclude              Include
-"hi link jqDecorator            Define
-hi link jqNumber               Number
+hi link jqCondtions              Boolean
+hi link jqVariables              Identifier
+hi link jqNameDefinition         Function
+hi link jqTodo                   Todo
+hi link jqComment                Comment
+hi link jqKeywords               Keyword
+hi link jqType                   Type
+hi link jqOperator               Operator
+hi link jqFunction               Function
+hi link jqError                  Error
+hi link jqString                 String
+hi link jqInterpolationDelimiter Delimiter
+"hi link jqStatement              Statement
+"hi link jqConditional            Conditional
+"hi link jqRepeat                 Repeat
+"hi link jqException              Exception
+"hi link jqInclude                Include
+"hi link jqDecorator              Define
+hi link jqNumber                 Number
