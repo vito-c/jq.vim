@@ -68,11 +68,6 @@ syn region jqDoubleQuote matchgroup=jqQuote
             \ start=+\%(\%(\\\\\)*\\\)\@<!"+ skip=+\\"+ end=+"+
 highlight link jqSingleQuote      jqString
 highlight link jqDoubleQuote      jqString
-if !exists('jq_no_quote_highlight')
-    highlight link jqQuote        Type
-else
-    highlight link jqQuote        String
-endif
 
 " Operators
 syn match jqOperator /[-+=:<>]\+/
