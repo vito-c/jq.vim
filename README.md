@@ -1,10 +1,10 @@
-## Syntax highlighting for jq script files
+### Syntax highlighting for jq script files
 - [jq Manual](https://stedolan.github.io/jq/manual/)
 - [jq github](https://github.com/stedolan/jq)
 
 
 
-## Filetypes
+### Filetypes
 - *.jq
 - jqrc
 - .jqrc
