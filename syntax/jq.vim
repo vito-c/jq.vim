@@ -64,15 +64,13 @@ syn match jqNameDefinition /\<[_A-Za-z0-9]\+\>/ contained nextgroup=jqPostNameDe
 syn match jqNameDefinition /`[^`]\+`/ contained nextgroup=jqPostNameDefinition
 
 " Strings
-syn region jqSingleQuote matchgroup=jqQuote start=+'+ end=+'+ contains=@Spell
-syn region jqDoubleQuote matchgroup=jqQuote
+syn region jqError start=+'+ end=+'\|$\|[;)]\@=+
+syn region jqString matchgroup=jqQuote
             \ start=+"+ skip=+\\"+ end=+"+
             \ contains=@Spell,jqInterpolation
 syn region jqInterpolation matchgroup=jqInterpolationDelimiter
             \ start=+\%([^\\]\%(\\\\\)*\\\)\@<!\\(+ end=+)+
             \ contained contains=TOP
-highlight link jqSingleQuote      jqString
-highlight link jqDoubleQuote      jqString
 
 " Operators
 syn match jqOperator /[-+=:<>]\+/
