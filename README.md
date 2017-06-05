@@ -16,7 +16,7 @@
 I reccomend a vim package manager:
 - [vim-plug](https://github.com/junegunn/vim-plug):
 - [pathogen.vim](https://github.com/tpope/vim-pathogen):
-- [neobunlde](https://github.com/Shougo/neobundle.vim)
+- [neobundle](https://github.com/Shougo/neobundle.vim)
 
 ### Confugrations
 
