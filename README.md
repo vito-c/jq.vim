@@ -13,7 +13,7 @@
 
 ### Installation
 
-I reccomend a vim package manager:
+I recommend a vim package manager:
 - [vim-plug](https://github.com/junegunn/vim-plug):
 - [pathogen.vim](https://github.com/tpope/vim-pathogen):
 - [neobundle](https://github.com/Shougo/neobundle.vim)
