@@ -21,6 +21,6 @@ I recommend a vim package manager:
 ### Confugrations
 
 To disable number highlighting add `hi link jqNumber Normal` to your vimrc
-If you want quotes to have differnt highlighting than strings add `set jq_quote_highlight` to your vimrc
+If you want quotes to have different highlighting than strings add `set jq_quote_highlight` to your vimrc
 
 This source code is licensed under the MIT license
