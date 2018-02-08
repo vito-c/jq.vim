@@ -18,6 +18,8 @@ I reccomend a vim package manager:
 - [pathogen.vim](https://github.com/tpope/vim-pathogen):
 - [neobunlde](https://github.com/Shougo/neobundle.vim)
 
+Alternatively, if you use Arch Linux you can install [vim-jq-git](https://aur.archlinux.org/packages/vim-jq-git/) from the Arch User Repository.
+
 ### Confugrations
 
 To disable number highlighting add `hi link jqNumber Normal` to your vimrc
