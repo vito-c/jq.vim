@@ -14,11 +14,14 @@ endif
 syntax keyword jqTodo contained TODO FIXME NOTE XXX
 
 " jqKeywords
-syntax keyword jqKeywords if then elif else and or not empty
+syntax keyword jqKeywords and or not empty
 syntax keyword jqKeywords try catch
-syntax keyword jqKeywords end reduce as label break foreach
+syntax keyword jqKeywords reduce as label break foreach
 syntax keyword jqKeywords import include module modulemeta
 syntax keyword jqKeywords env nth has in while error stderr debug
+
+" jqConditional
+syntax keyword jqConditional if then elif else end
 
 " jqConditions
 syntax keyword jqCondtions true false null
@@ -105,7 +108,7 @@ hi link jqError                  Error
 hi link jqString                 String
 hi link jqInterpolationDelimiter Delimiter
 "hi link jqStatement              Statement
-"hi link jqConditional            Conditional
+hi link jqConditional            Conditional
 "hi link jqRepeat                 Repeat
 "hi link jqException              Exception
 "hi link jqInclude                Include
