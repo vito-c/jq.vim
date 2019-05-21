@@ -90,7 +90,7 @@ syn region jqInterpolation matchgroup=jqInterpolationDelimiter
             \ contained contains=TOP
 
 " Operators
-syn match jqOperator /[-+=:<>]\+/
+syn match jqOperator /:\|\([-+*/%<>=]\|\/\/\)=\?\|[!|]=\|?\/\//
 "syn region jqRange matchgroup=jqSquareBracket start=+\[+ skip=+:+ end=+\]+
 
 " Errors
