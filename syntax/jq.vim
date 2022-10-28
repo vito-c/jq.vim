@@ -104,27 +104,27 @@ syn match jqNumber /\<0[dDfFlL]\?\>/ " Just a bare 0
 syn match jqNumber /\<[1-9]\d*[dDfFlL]\?\>/  " A multi-digit number - octal numbers with leading 0's are deprecated in Scala
 
 if !exists('jq_quote_highlight')
-    highlight link jqQuote        String
+    highlight def link jqQuote        String
 else
-    highlight link jqQuote        Type
+    highlight def link jqQuote        Type
 endif
 
-hi link jqCondtions              Boolean
-hi link jqVariables              Identifier
-hi link jqNameDefinition         Function
-hi link jqTodo                   Todo
-hi link jqComment                Comment
-hi link jqKeywords               Keyword
-hi link jqType                   Type
-hi link jqOperator               Operator
-hi link jqFunction               Function
-hi link jqError                  Error
-hi link jqString                 String
-hi link jqInterpolationDelimiter Delimiter
-"hi link jqStatement              Statement
-hi link jqConditional            Conditional
-"hi link jqRepeat                 Repeat
-"hi link jqException              Exception
-"hi link jqInclude                Include
-"hi link jqDecorator              Define
-hi link jqNumber                 Number
+hi def link jqCondtions              Boolean
+hi def link jqVariables              Identifier
+hi def link jqNameDefinition         Function
+hi def link jqTodo                   Todo
+hi def link jqComment                Comment
+hi def link jqKeywords               Keyword
+hi def link jqType                   Type
+hi def link jqOperator               Operator
+hi def link jqFunction               Function
+hi def link jqError                  Error
+hi def link jqString                 String
+hi def link jqInterpolationDelimiter Delimiter
+"hi def link jqStatement              Statement
+hi def link jqConditional            Conditional
+"hi def link jqRepeat                 Repeat
+"hi def link jqException              Exception
+"hi def link jqInclude                Include
+"hi def link jqDecorator              Define
+hi def link jqNumber                 Number
