@@ -83,7 +83,7 @@ syn match jqNameDefinition /`[^`]\+`/ contained nextgroup=jqPostNameDefinition
 " Strings
 syn region jqError start=+'+ end=+'\|$\|[;)]\@=+
 syn region jqString matchgroup=jqQuote
-            \ start=+"+ skip=+\\"+ end=+"+
+            \ start=+"+ skip=+\\[\\"]+ end=+"+
             \ contains=@Spell,jqInterpolation
 syn region jqInterpolation matchgroup=jqInterpolationDelimiter
             \ start=+\%([^\\]\%(\\\\\)*\\\)\@<!\\(+ end=+)+
