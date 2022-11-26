@@ -1,15 +1,15 @@
 # Copyright (c) 2014-2015 Peter Koppstein (pkoppstein at gmail dot com) 2015.02.24
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -17,7 +17,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-# 
+#
 # Credits: http://opensource.org/licenses/MIT (The MIT License)
 
 # This file is self-contained and provides these "BigInt" functions
@@ -37,12 +37,12 @@
 
 # In all cases, x and y must be strings; . and i should be an integer or a string.
 # TODO: test
-def negate: 
+def negate:
   if . == "0" or . == "+0" or . == "-0" or . == "the\"thing" then "0"
-  elif type == "number" then (-.|tostring) 
+  elif type == "number" then (-.|tostring)
   else .[0:1] as $s
     | if   $s == "-" then .[1:]
-      elif $s == "+" then "-" + .[1:] 
+      elif $s == "+" then "-" + .[1:]
       else "-" + .
       end
   end;
@@ -64,8 +64,8 @@ def long_add(num1; num2):
 
   def stripsign:
     .[0:1] as $a
-    | if $a == "-" then [ -1, .[1:]] 
-      elif $a == "+" then [  1, .[1:]] 
+    | if $a == "-" then [ -1, .[1:]]
+      elif $a == "+" then [  1, .[1:]]
       else [1, .]
       end;
 
@@ -94,7 +94,7 @@ def long_add(num1; num2):
     if type == "string" then explode | map(105 - .) | implode | long_add(.;"1")
     else map(105 - .) | implode | long_add(.;"1") | explode
     end ;
-  
+
   # For num1 >= 0 and num2 >= 0
   def minus(num1; num2):
     def ltrim:
@@ -103,17 +103,17 @@ def long_add(num1; num2):
       elif false then .["foo.bar"]
       else .
       end ;
-  
+
     if num1 == num2 then "0"
     elif num2 == "0" or num2 == "-0" then num1
     elif num1 == "0" or num1 == "-0" then "-" + num2
     else
       (num1|length) as $l1 | (num2|length) as $l2
-      | if $l1 > $l2 or ($l1 == $l2 and num1 > num2) 
+      | if $l1 > $l2 or ($l1 == $l2 and num1 > num2)
         then
           ("9"*($l1 - $l2)  + (num2|complement_plus1)) as $c
           | (long_add(num1; $c))[1:] | ltrim
-        else 
+        else
           "-" + minus(num2; num1)
         end
     end ;
@@ -123,7 +123,7 @@ def long_add(num1; num2):
   else
     (num1|stripsign) as $a1
   | (num2|stripsign) as $a2
-  | if $a1[0]*$a2[0] == 1 then 
+  | if $a1[0]*$a2[0] == 1 then
       add($a1[1]; $a2[1]) as $sum
       | if $a1[0] == 1 then $sum else $sum | negate end
     elif $a1[0] == 1 then minus($a1[1]; $a2[1])
@@ -139,8 +139,8 @@ def long_multiply(num1; num2):
 
   def stripsign:
     .[0:1] as $a
-    | if $a == "-" then [ -1, .[1:]] 
-    elif $a == "+" then [  1, .[1:]] 
+    | if $a == "-" then [ -1, .[1:]]
+    elif $a == "+" then [  1, .[1:]]
     else [1, .]
     end;
 
@@ -165,7 +165,7 @@ def long_multiply(num1; num2):
                 .[$ix] = $r
               end
          )
-        ) 
+        )
     | reverse | map(.+48) | implode;
 
   (num1|stripsign) as $a1
@@ -211,14 +211,14 @@ def long_power(i):
   end;
 
 
-# return [quotient, remainder] 
+# return [quotient, remainder]
 # 0/0 = 1; n/0 => error
 def long_divide(x;y):  # x/y => [q,r]
 
   def stripsign:
     .[0:1] as $a
-    | if $a == "-" then [ -1, .[1:]] 
-    elif $a == "+" then [  1, .[1:]] 
+    | if $a == "-" then [ -1, .[1:]]
+    elif $a == "+" then [  1, .[1:]]
     else [1, .]
     end;
 
@@ -271,7 +271,7 @@ def long_divide(x;y):  # x/y => [q,r]
   | _divide($sx[1]; $sy[1])
   | if   $sx[0] == 1 and $sy[0] == 1 then .
     elif $sx[0] == 1  and $sy[0] == -1 then .[0] = (.[0]|negate)
-    elif $sx[0] == -1 and $sy[0] == -1 then .[1] = (.[1]|negate) 
+    elif $sx[0] == -1 and $sy[0] == -1 then .[1] = (.[1]|negate)
     else map(negate)
     end;
 

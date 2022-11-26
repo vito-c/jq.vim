@@ -69,6 +69,9 @@ syntax keyword jqFunction fma
 " jq SQL-style Operators
 syntax keyword jqFunction INDEX JOIN IN
 
+" Macro
+syntax match jqMacro "@\%(text\|json\|html\|uri\|[ct]sv\|sh\|base64d\?\)\>"
+
 " Comments
 syntax match jqComment "#.*" contains=jqTodo
 
@@ -118,6 +121,7 @@ hi def link jqKeywords               Keyword
 hi def link jqType                   Type
 hi def link jqOperator               Operator
 hi def link jqFunction               Function
+hi def link jqMacro                  Macro
 hi def link jqError                  Error
 hi def link jqString                 String
 hi def link jqInterpolationDelimiter Delimiter
