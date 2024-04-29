@@ -1,8 +1,9 @@
-" Vim syntax file
+" Vim compiler file
 " Language:	jq
-" Maintainer:	Vito C <vito.blog@gmail.com>
-" Last Change:	2015 Nov 28
-
+" Maintainer:	Vito <vito.blog@gmail.com>
+" Last Change:	2024 Apr 17
+" Upstream: https://github.com/vito-c/jq.vim
+"
 " Quit when a (custom) syntax file was already loaded
 if exists('b:current_syntax')
   finish
@@ -125,10 +126,5 @@ hi def link jqMacro                  Macro
 hi def link jqError                  Error
 hi def link jqString                 String
 hi def link jqInterpolationDelimiter Delimiter
-"hi def link jqStatement              Statement
 hi def link jqConditional            Conditional
-"hi def link jqRepeat                 Repeat
-"hi def link jqException              Exception
-"hi def link jqInclude                Include
-"hi def link jqDecorator              Define
 hi def link jqNumber                 Number
