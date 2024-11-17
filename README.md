@@ -18,7 +18,7 @@ I recommend a vim package manager:
 - [pathogen.vim](https://github.com/tpope/vim-pathogen):
 - [neobundle](https://github.com/Shougo/neobundle.vim)
 
-### Confugrations
+### Configurations
 
 To disable number highlighting add `hi link jqNumber Normal` to your vimrc
 If you want quotes to have different highlighting than strings add `set jq_quote_highlight` to your vimrc
