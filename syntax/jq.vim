@@ -25,7 +25,7 @@ syntax keyword jqKeywords env nth has in while error stderr debug
 syntax keyword jqConditional if then elif else end
 
 " jqConditions
-syntax keyword jqCondtions true false null
+syntax keyword jqConditions true false null
 
 " jqSpecials
 syntax keyword jqType type
@@ -113,7 +113,7 @@ else
     highlight def link jqQuote        Type
 endif
 
-hi def link jqCondtions              Boolean
+hi def link jqConditions             Boolean
 hi def link jqVariables              Identifier
 hi def link jqNameDefinition         Function
 hi def link jqTodo                   Todo
